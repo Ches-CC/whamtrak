@@ -41,12 +41,34 @@ $(document).ready(function(){
         });
 
         //retrieve the values from firebase
-        database.ref().on("child_added", function (snapshot){
+        //having some issues here--the child_added seems to re-list every entry (vs just he last one)
+        database.ref().on("child_added", function (DataSnapshot){
+
+            //going to try and pull just the last value...
+           //-----FAIL
+            //    let newItems = false;
+            //    child.trainName("trainName").on("child_added", DataSnapshot => {
+            //        if (!newItems) { return }
+            //        console.log("Only last one");
+            //    })
+
+            //    database.child("trainName").once("value", () => {
+            //        newItems = true;
+            //    })
+           //----------FAIL
+
+            //Next try: creating an empty array to push DataSnapshots to, then pull the last array item;
+            //FAIL: each database item creates its own array--> end up with a bunch of arrays with 0 (1) item;
+            var childArray = [];
+            
+
 
             //easier to type out & read this way, or so I've heard
-            var response = snapshot.val();
+            var response = DataSnapshot.val();
 
-            console.log(response);
+            // console.log(response);
+            childArray.push(response);
+            console.log(childArray.length);
 
             //storing database info (via JSON-type file) into new variables 
             var tName = response.trainName;
@@ -54,6 +76,9 @@ $(document).ready(function(){
             var tFrequency = response.frequencyInput;
             var tNextArrival = "";
             var tMinutesAway = "";
+
+            
+
 
             //now to push the info back to the table
             var newRow = $("<tr>");
