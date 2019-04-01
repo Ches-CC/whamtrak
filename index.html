@@ -11,7 +11,8 @@
     <!--CSS link if used-->
     <link rel="stylesheet" type="text/css" ref="whamstyle.css">
     <!--Bootstrap 4 link-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--jQuery link-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!--Firebase links-->
@@ -40,8 +41,8 @@
         </div>
 
         <div>
-            <table class="table bg-light border p-2">
-                <div class="text-center bg-light mb-0">
+            <table class="table bg-light border p-2 text-center">
+                <div class="text-center bg-light mb-0 p-2">
                     <h2 class="mb-0">Current Train Schedule</h2>
                 </div>
 
@@ -85,6 +86,20 @@
                         <label for="first-time">First Train Time (HH:mm - military time)</label>
                         <input type="text" class="form-control" id="first-time">
                     </div>
+                    <div>
+                        <select class="custom-select" id="HH">
+                            <option selected>Open this select menu</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                        </select>
+                    </div>
+                    <select class="custom-select" id="mm">
+                            <option selected>Open this select menu</option>
+                            <option value="01">01</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
                     <div class="form-group">
                         <label for="frequency-input">Frequency (min)</label>
                         <input type="text" class="form-control" id="frequency-input">
